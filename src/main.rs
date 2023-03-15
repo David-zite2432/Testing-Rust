@@ -40,6 +40,8 @@ fn main() {
     Providers::show_elements(&provider_a);
     let providers = providers_data_based();
     println!("{:?}", providers);
+
+    show_one_provider(&providers)
 }
 
 fn providers_data_based() -> Vec<Providers> {
@@ -89,4 +91,19 @@ fn providers_data_based() -> Vec<Providers> {
     }
 
     provider_vec
+}
+
+fn show_one_provider(providers: &Vec<Providers>) {
+    // Show all providers saved in the database
+    for (iter, element) in providers.iter().enumerate() {
+        println!("[{}]: {}", iter, element.companie);
+    }
+
+    // Request option
+    println!("Eliga el proveedor que decea mostrar");
+    let mut option_value = String::new();
+    stdin().read_line(&mut option_value).expect("No se pudo leer la línea");
+    let option: usize = option_value.trim().parse().expect("No se pudo parsear el valor");
+
+    println!("{:?}", providers[option]);
 }
