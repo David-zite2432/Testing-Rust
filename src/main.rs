@@ -1,6 +1,5 @@
 use std::io::stdin;
 
-#[derive(Debug)]
 struct Providers {
     companie: String,
     products: Vec<String>,
@@ -41,7 +40,7 @@ fn main() {
     let providers = providers_data_based();
 
     let one_provider = return_one_provider(&providers);
-    println!("{:?}", one_provider);
+    Providers::show_elements(&one_provider);
 }
 
 fn providers_data_based() -> Vec<Providers> {
