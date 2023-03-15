@@ -40,7 +40,7 @@ fn main() {
     let providers = providers_data_based();
 
     let one_provider = return_one_provider(&providers);
-    Providers::show_elements(&one_provider);
+    Providers::show_elements(one_provider);
 }
 
 fn providers_data_based() -> Vec<Providers> {
@@ -92,7 +92,7 @@ fn providers_data_based() -> Vec<Providers> {
     provider_vec
 }
 
-fn return_one_provider(providers: &Vec<Providers>) -> Providers {
+fn return_one_provider(providers: &Vec<Providers>) -> &Providers {
     // Show all providers saved in the database
     for (iter, element) in providers.iter().enumerate() {
         println!("[{}]: {}", iter, element.companie);
@@ -104,5 +104,5 @@ fn return_one_provider(providers: &Vec<Providers>) -> Providers {
     stdin().read_line(&mut option_value).expect("No se pudo leer la línea");
     let option: usize = option_value.trim().parse().expect("No se pudo parsear el valor");
 
-    providers[option]
+    &providers[option]
 }
