@@ -105,5 +105,5 @@ fn return_one_provider(providers: &Vec<Providers>) -> Providers {
     stdin().read_line(&mut option_value).expect("No se pudo leer la línea");
     let option: usize = option_value.trim().parse().expect("No se pudo parsear el valor");
 
-    providers[option];
+    providers[option]
 }
