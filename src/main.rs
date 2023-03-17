@@ -41,6 +41,7 @@ fn main() {
 
     let one_provider = return_one_provider(&providers);
     Providers::show_elements(one_provider);
+    println!("Good by!");
 }
 
 fn providers_data_based() -> Vec<Providers> {
